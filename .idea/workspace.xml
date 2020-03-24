@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3e4a174-774a-45c9-89cc-16ecc83deb07" name="Default Changelist" comment="" />
+    <list default="true" id="c3e4a174-774a-45c9-89cc-16ecc83deb07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Board.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pieceTypes.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/BoardTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/chess/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/chess/Pawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/chess/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/chess/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/chess/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/chess/TestingKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/chess/TestingKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/chess/PieceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/chess/SquareTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pawn.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Piece.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Square.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/testing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PieceTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SquareTest.kt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,11 +28,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZAxfZNYnrDoreYx7dS0trYXjHn" />
   <component name="ProjectViewState">
@@ -28,6 +50,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -42,52 +65,48 @@
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="" />
+      <recent name="chess" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
       <recent name="chess.Piece" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/chess" />
+    </key>
   </component>
-  <component name="RunManager" selected="Kotlin.TestingKt">
-    <configuration name="PieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.TestingKt (1)">
+    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PieceTest" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PieceTest.moveToOccupiedSquare" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest.testGenerateColumns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PieceTest" />
-      <option name="METHOD_NAME" value="moveToOccupiedSquare" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="METHOD_NAME" value="testGenerateColumns" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PieceTest.moveToValidSquare" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest.testGenerateRows" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PieceTest" />
-      <option name="METHOD_NAME" value="moveToValidSquare" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="METHOD_NAME" value="testGenerateRows" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SquareTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SquareTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestingKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="TestingKt (1)" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -100,13 +119,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestingKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="chess.chess.TestingKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.TestingKt (1)" />
+        <item itemvalue="JUnit.BoardTest" />
+        <item itemvalue="JUnit.BoardTest.testGenerateColumns" />
+        <item itemvalue="JUnit.BoardTest.testGenerateRows" />
         <item itemvalue="Kotlin.TestingKt" />
-        <item itemvalue="JUnit.PieceTest.moveToOccupiedSquare" />
-        <item itemvalue="JUnit.PieceTest" />
-        <item itemvalue="JUnit.SquareTest" />
-        <item itemvalue="JUnit.PieceTest.moveToValidSquare" />
       </list>
     </recent_temporary>
   </component>
@@ -143,54 +175,54 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="721" y="338" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584348747770" />
-    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584388713000">
+    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584802627618">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584388713000" />
-    <state x="746" y="194" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1584310283413">
+    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584802627618" />
+    <state x="746" y="194" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1584800224491">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="746" y="194" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584310283413" />
-    <state x="1139" y="188" key="#xdebugger.evaluate" timestamp="1584388132289">
+    <state x="746" y="194" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584800224491" />
+    <state x="732" y="203" key="#xdebugger.evaluate" timestamp="1584802810360">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="1139" y="188" key="#xdebugger.evaluate/67.27.1853.1053@67.27.1853.1053" timestamp="1584388132289" />
+    <state x="732" y="203" key="#xdebugger.evaluate/67.27.1853.1053@67.27.1853.1053" timestamp="1584802810360" />
     <state x="206" y="296" width="907" height="513" key="FileChooserDialogImpl" timestamp="1584296860797">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="206" y="296" width="907" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1584296860797" />
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1584389679153">
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1584888446041">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584389679153" />
-    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1584389679151">
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584888446041" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1584888446040">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584389679151" />
-    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1584389679150">
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584888446040" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1584888446039">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584389679150" />
-    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1584389679152">
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584888446039" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1584888446041">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584389679152" />
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1584388135575">
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584888446041" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1584887387899">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584388135575" />
-    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1584388135574">
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1584887387899" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1584887387897">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584388135574" />
-    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1584388135573">
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1584887387897" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1584887387896">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584388135573" />
-    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1584388135574">
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1584887387896" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1584887387898">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584388135574" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1584887387898" />
     <state x="67" y="130" width="1024" height="845" key="SettingsEditor" timestamp="1584297055620">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -199,13 +231,25 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="251" y="448" width="646" height="208" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/67.27.1853.1053@67.27.1853.1053" timestamp="1584297024466" />
-    <state x="734" y="227" width="509" height="650" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1584348900604">
+    <state x="516" y="158" width="944" height="789" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584884262074">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="734" y="227" width="509" height="650" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584348900604" />
-    <state x="738" y="196" width="501" height="713" key="refactoring.ChangeSignatureDialog" timestamp="1584348610893">
+    <state x="516" y="158" width="944" height="789" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1584884262074" />
+    <state x="734" y="227" width="509" height="650" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1584798822431">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="738" y="196" width="501" height="713" key="refactoring.ChangeSignatureDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584348610893" />
+    <state x="734" y="227" width="509" height="650" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584798822431" />
+    <state x="738" y="196" width="501" height="713" key="refactoring.ChangeSignatureDialog" timestamp="1584811761308">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="738" y="196" width="501" height="713" key="refactoring.ChangeSignatureDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1584811761308" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1584796271486">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584796271486" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1584796498544">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1584796498544" />
   </component>
 </project>
