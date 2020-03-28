@@ -2,48 +2,7 @@ package chess
 
 class Board {
 
-    internal val matrix = generateMatrix()
-
-    fun placePiecesForStart() {
-        placePawns()
-
-        matrix.
-//        placeTowers()
-//        placeKnights()
-//        placeBishops()
-//        placeRoyalty()
-    }
-
-    private fun placeRoyalty() {
-        matrix[Pair('E', '1')] = King("white")
-        matrix[Pair('D', '8')] = King("black")
-
-        matrix[Pair('D', '1')] = Queen("white")
-        matrix[Pair('E', '8')] = Queen("black")
-    }
-
-    private fun placeBishops() {
-        matrix[Pair('C', '1')] = Bishop("white")
-        matrix[Pair('F', '1')] = Bishop("white")
-
-        matrix[Pair('C', '8')] = Bishop("black")
-        matrix[Pair('F', '8')] = Bishop("black")
-    }
-
-    private fun placeKnights() {
-        matrix[Pair('B', '1')] = Knight("white")
-        matrix[Pair('G', '1')] = Knight("white")
-
-        matrix[Pair('B', '8')] = Knight("white")
-        matrix[Pair('G', '8')] = Knight("white")
-    }
-
-    private fun placeTowers() {
-        matrix[Pair('1', 'A')] = Tower("white")
-        matrix[Pair('1', 'H')] = Tower("white")
-        matrix[Pair('8', 'A')] = Tower("black")
-        matrix[Pair('8', 'H')] = Tower("black")
-    }
+    val matrix = generateMatrix()
 
     private fun generateMatrix(): MutableMap<Pair<Char, Char>, Piece> {
 
@@ -58,17 +17,67 @@ class Board {
         return map
     }
 
+    fun placePiecesForStart() {
+        placeTowers()
+        placeKnights()
+        placeBishops()
+        placeRoyalty()
+        placePawns()
+    }
+
+    private fun placeTowers() {
+        matrix[Pair('A', '1')] = Tower("white")
+        matrix[Pair('H', '1')] = Tower("white")
+
+        matrix[Pair('A', '8')] = Tower("black")
+        matrix[Pair('H', '8')] = Tower("black")
+    }
+
+    private fun placeKnights() {
+        matrix[Pair('B', '1')] = Knight("white")
+        matrix[Pair('G', '1')] = Knight("white")
+
+        matrix[Pair('B', '8')] = Knight("black")
+        matrix[Pair('G', '8')] = Knight("black")
+    }
+
+    private fun placeBishops() {
+        matrix[Pair('C', '1')] = Bishop("white")
+        matrix[Pair('F', '1')] = Bishop("white")
+
+        matrix[Pair('C', '8')] = Bishop("black")
+        matrix[Pair('F', '8')] = Bishop("black")
+    }
+
+    private fun placeRoyalty() {
+        matrix[Pair('E', '1')] = King("white")
+        matrix[Pair('D', '8')] = King("black")
+
+        matrix[Pair('D', '1')] = Queen("white")
+        matrix[Pair('E', '8')] = Queen("black")
+    }
+
     private fun placePawns() {
         val blackPawnRow = getFullRow('7')
         val whitePawnRow = getFullRow('2')
 
-        whitePawnRow.forEach { key -> matrix.replace(key, Pawn("white")) }
-        blackPawnRow.forEach { key -> matrix.replace(key, Pawn("black")) }
+        whitePawnRow.forEach { key -> matrix[key] = Pawn("white") }
+        blackPawnRow.forEach { key -> matrix[key] = Pawn("black") }
     }
 
     private fun getFullRow(row: Char): Set<Pair<Char, Char>> {
         return matrix.filter { (key, _) ->
             key.second == row
         }.keys
+    }
+
+    companion object {
+
+        private val board = Board()
+
+        fun newGameBoard(): Board {
+            board.placePiecesForStart()
+            return board
+        }
     }
 }
