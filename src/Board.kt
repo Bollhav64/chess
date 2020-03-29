@@ -51,10 +51,10 @@ class Board {
 
     private fun placeRoyalty() {
         matrix[Pair('E', '1')] = King("white")
-        matrix[Pair('D', '8')] = King("black")
+        matrix[Pair('E', '8')] = King("black")
 
         matrix[Pair('D', '1')] = Queen("white")
-        matrix[Pair('E', '8')] = Queen("black")
+        matrix[Pair('D', '8')] = Queen("black")
     }
 
     private fun placePawns() {
