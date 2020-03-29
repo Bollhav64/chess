@@ -71,6 +71,17 @@ class Board {
         }.keys
     }
 
+    fun move(piece: Piece, target: Pair<Char, Char>) {
+        val originalPosition: Pair<Char, Char> = matrix.filterValues {
+            it == piece
+        }.keys.first()
+
+        if (piece.validMove(target, matrix)) {
+            matrix[target] = piece
+            matrix[originalPosition] = NullPiece
+        }
+    }
+
     companion object {
 
         private val board = Board()

@@ -1,12 +1,34 @@
 import chess.Board
 import chess.NullPiece
+import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertTrue
 
 class BoardTest {
 
-    private val board = Board.newGameBoard()
+    private lateinit var board: Board
+
+    @Before
+    fun setup() {
+        board = Board.newGameBoard()
+    }
+
+    @After
+    fun teardown() {
+        board = Board()
+    }
+
+    @Test
+    fun testGenerateMatrix() {
+        assertEquals(64, board.matrix.size)
+    }
+
+    @Test
+    fun testNewGameBoard() {
+        assertEquals("class chess.Board", board.javaClass.toString())
+    }
 
     @Test
     fun testNumberOfPlacedPieces() {
@@ -37,11 +59,11 @@ class BoardTest {
             Pair('H', '2'), Pair('H', '7')
         )
 
-        assertEquals(8 , whitePawns.size)
-        assertEquals(8 , blackPawns.size)
+        assertEquals(8, whitePawns.size)
+        assertEquals(8, blackPawns.size)
 
-        for ( pawn in whitePawns ) {
-            assertTrue( (pawn.key in expectedPositions) )
+        for (pawn in whitePawns) {
+            assertTrue((pawn.key in expectedPositions))
         }
     }
 
@@ -121,4 +143,14 @@ class BoardTest {
         assertTrue(knights[Pair('F', '1')]?.name == "white Bishop")
     }
 
+    @Test
+    fun testMove() {
+        val piece = board.matrix[Pair('A', '2')]
+
+        board.move(piece!!, Pair('A', '4'))
+        assertEquals(piece, board.matrix[Pair('A', '4')])
+        board.move(piece, Pair('A', '2'))
+
+    }
 }
+
