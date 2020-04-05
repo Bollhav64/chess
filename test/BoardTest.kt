@@ -8,16 +8,11 @@ import kotlin.test.assertTrue
 
 class BoardTest {
 
-    private lateinit var board: Board
+    private val board = Board.newGameBoard()
 
     @Before
     fun setup() {
-        board = Board.newGameBoard()
-    }
-
-    @After
-    fun teardown() {
-        board = Board()
+        board.reload()
     }
 
     @Test

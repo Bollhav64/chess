@@ -5,10 +5,9 @@ open class Piece(_team: String) {
     val type = javaClass.toString().split(".")[1]
     val name = "$team $type"
 
+    var moved = false
 
-    private var moved = false
-
-    fun validMove(target: Pair<Char, Char>, board: MutableMap<Pair<Char, Char>, Piece>): Boolean {
+    open fun validMove(target: Pair<Char, Char>, board: MutableMap<Pair<Char, Char>, Piece>): Boolean {
         val occupant = board[target]
 
         return (!sameTeam(occupant!!))
@@ -20,5 +19,5 @@ open class Piece(_team: String) {
 
 }
 
-object NullPiece: Piece("none")
+object NullPiece : Piece("none")
 

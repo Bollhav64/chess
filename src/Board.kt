@@ -2,27 +2,30 @@ package chess
 
 class Board {
 
-    val matrix = generateMatrix()
+        val matrix: MutableMap<Pair<Char, Char>, Piece> =
+            emptyMap<Pair<Char, Char>, Piece>().toMutableMap()
 
-    private fun generateMatrix(): MutableMap<Pair<Char, Char>, Piece> {
+    init {
+        populateMatrix()
+    }
 
-        val map = emptyMap<Pair<Char, Char>, Piece>().toMutableMap()
-
+    private fun populateMatrix() {
         for (row in ('A'..'H')) {
             for (column in '1'..'8') {
                 val coordinate = Pair(row, column)
-                map[coordinate] = NullPiece
+                matrix[coordinate] = NullPiece
             }
         }
-        return map
+        placePiecesForStart()
     }
 
     fun placePiecesForStart() {
+        placePawns()
         placeTowers()
         placeKnights()
         placeBishops()
         placeRoyalty()
-        placePawns()
+        print("")
     }
 
     private fun placeTowers() {
@@ -80,6 +83,11 @@ class Board {
             matrix[target] = piece
             matrix[originalPosition] = NullPiece
         }
+    }
+
+    fun reload() {
+        matrix.clear()
+        populateMatrix()
     }
 
     companion object {
