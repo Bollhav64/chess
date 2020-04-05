@@ -6,7 +6,7 @@ import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class PieceTest {
+class PieceSuperClassTest {
 
     private val matrix = Board.newGameBoard().matrix
     private val piece = Piece("white")
@@ -37,6 +37,7 @@ class PieceTest {
         val piece = Piece("white")
         val valid = piece.validMove(Pair('A', '4'), matrix)
         val unvalid = piece.validMove(Pair('B', '2'), matrix)
+
 
         assertTrue(valid)
         assertFalse(unvalid)
