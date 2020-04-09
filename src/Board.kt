@@ -11,7 +11,6 @@ class Board {
 
     private fun populateMatrix() {
         for (row in 'A'..'H') {
-
             for (column in '1'..'8') {
                 val coordinate = Pair(row, column)
                 matrix[coordinate] = NullPiece
