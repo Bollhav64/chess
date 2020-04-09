@@ -8,9 +8,8 @@ class Pawn(_team: String) : Piece(_team) {
             it == this
         }.keys.first()
 
-
         return (attackMove(originalPosition, target, occupantPiece)
-
+                
                 || (rowMove(originalPosition, target, board)
 
                 && columnMove(originalPosition.second, target.second)

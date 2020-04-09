@@ -23,7 +23,6 @@ class PiecesTypesTest {
     @Test
     fun testPawnValidMove() {
         val matrix = board.matrix
-
         val pawn = matrix[Pair('A', '2')]!!
 
         val validFirst = pawn.validMove(Pair('A', '4'), matrix)
