@@ -62,7 +62,7 @@ class Knight(_team: String) : Piece(_team)
 
 class Bishop(_team: String) : Piece(_team)
 
-class Tower(_team: String) : Piece(_team)
+class Rook(_team: String) : Piece(_team)
 
 
 

@@ -21,18 +21,18 @@ class Board {
 
     fun placePiecesForStart() {
         placePawns()
-        placeTowers()
+        placeRooks()
         placeKnights()
         placeBishops()
         placeRoyalty()
     }
 
-    private fun placeTowers() {
-        matrix[Pair('A', '1')] = Tower("white")
-        matrix[Pair('H', '1')] = Tower("white")
+    private fun placeRooks() {
+        matrix[Pair('A', '1')] = Rook("white")
+        matrix[Pair('H', '1')] = Rook("white")
 
-        matrix[Pair('A', '8')] = Tower("black")
-        matrix[Pair('H', '8')] = Tower("black")
+        matrix[Pair('A', '8')] = Rook("black")
+        matrix[Pair('H', '8')] = Rook("black")
     }
 
     private fun placeKnights() {

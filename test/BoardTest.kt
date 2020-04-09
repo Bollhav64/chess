@@ -83,22 +83,21 @@ class BoardTest {
     }
 
     @Test
-    fun testNumberOfTowers() {
-        val towers = board.matrix.filterValues { it.name.contains("Tower") }
+    fun testNumberOfRooks() {
+        val rooks = board.matrix.filterValues { it.name.contains("Rook") }
 
-        assertEquals(4, towers.size)
-
+        assertEquals(4, rooks.size)
     }
 
     @Test
-    fun testTowerPlacement() {
-        val towers = board.matrix.filterValues { it.name.contains("Tower") }
+    fun testRookPlacement() {
+        val rooks = board.matrix.filterValues { it.name.contains("Rook") }
 
-        assertTrue(towers[Pair('A', '8')]?.name == "black Tower")
-        assertTrue(towers[Pair('H', '8')]?.name == "black Tower")
+        assertTrue(rooks[Pair('A', '8')]?.name == "black Rook")
+        assertTrue(rooks[Pair('H', '8')]?.name == "black Rook")
 
-        assertTrue(towers[Pair('A', '1')]?.name == "white Tower")
-        assertTrue(towers[Pair('H', '1')]?.name == "white Tower")
+        assertTrue(rooks[Pair('A', '1')]?.name == "white Rook")
+        assertTrue(rooks[Pair('H', '1')]?.name == "white Rook")
     }
 
     @Test
