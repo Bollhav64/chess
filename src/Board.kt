@@ -25,7 +25,6 @@ class Board {
         placeKnights()
         placeBishops()
         placeRoyalty()
-        print("")
     }
 
     private fun placeTowers() {
