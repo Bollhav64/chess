@@ -9,7 +9,7 @@ class Pawn(_team: String) : Piece(_team) {
         }.keys.first()
 
 
-        return (attackMove(originalPosition.second, target.second, occupantPiece)
+        return (attackMove(originalPosition, target, occupantPiece)
 
                 || (rowMove(originalPosition, target, board)
 
@@ -18,11 +18,16 @@ class Pawn(_team: String) : Piece(_team) {
     }
 
     private fun attackMove(
-        original: Char,
-        target: Char,
+        original: Pair<Char, Char>,
+        target: Pair<Char, Char>,
         occupantPiece: Piece
     ): Boolean {
-        return if (target == original+1 || target == original-1) {
+
+        if (target.second == original.second) {return false}
+
+        return if (target.first == original.first+1 || target.first == original.first-1 &&
+            (target.second == original.second+1)) {
+
             (occupantPiece.type != "NullPiece" && !sameTeam(occupantPiece))
         } else {
             false
