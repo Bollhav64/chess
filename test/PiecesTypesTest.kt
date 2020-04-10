@@ -1,5 +1,5 @@
-import chess.Board
-import chess.Pawn
+import chess.*
+
 import org.junit.After
 import org.junit.Before
 import org.junit.Test

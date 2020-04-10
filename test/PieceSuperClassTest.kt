@@ -1,10 +1,10 @@
-import chess.Board
-import chess.Pawn
-import chess.Piece
+import chess.*
+
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
+
 
 class PieceSuperClassTest {
 
