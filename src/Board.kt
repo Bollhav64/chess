@@ -1,9 +1,9 @@
 package chess
 
 class Board {
-
-        val matrix: MutableMap<Pair<Char, Char>, Piece> =
-            emptyMap<Pair<Char, Char>, Piece>().toMutableMap()
+    
+    val matrix: MutableMap<Pair<Char, Char>, Piece> =
+        emptyMap<Pair<Char, Char>, Piece>().toMutableMap()
 
     init {
         populateMatrix()
