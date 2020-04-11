@@ -1,5 +1,7 @@
 package chess
 
+import java.lang.IllegalArgumentException
+
 class Board {
     
     val matrix: MutableMap<Pair<Char, Char>, Piece> =
@@ -13,7 +15,7 @@ class Board {
         for (row in 'A'..'H') {
             for (column in '1'..'8') {
                 val coordinate = Pair(row, column)
-                matrix[coordinate] = NullPiece
+                emptySquare(coordinate)
             }
         }
         placePiecesForStart()
@@ -81,6 +83,8 @@ class Board {
         if (piece.validMove(target, matrix)) {
             matrix[target] = piece
             emptySquare(originalPosition)
+        } else {
+            throw IllegalArgumentException("Unvalid Move Target")
         }
     }
 

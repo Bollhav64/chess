@@ -3,6 +3,8 @@ import chess.*
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import java.lang.IllegalArgumentException
+import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 class BoardTest {
@@ -143,6 +145,15 @@ class BoardTest {
         board.move(piece!!, Pair('A', '4'))
         assertEquals(piece, board.matrix[Pair('A', '4')])
         assertEquals(NullPiece, board.matrix[Pair('A', '2')])
+    }
+
+    @Test
+    fun testUnvalidMoveException() {
+        val piece = board.matrix[Pair('A', '2')]!!
+        
+        assertFailsWith<IllegalArgumentException> {
+            board.move(piece, Pair('A', '1'))
+        }
     }
 }
 

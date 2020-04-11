@@ -1,11 +1,14 @@
-import chess.*
-
+import chess.Board
+import chess.Pawn
+import chess.Piece
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import java.lang.IllegalArgumentException
+import kotlin.test.assertFails
+import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-
 
 class PieceSuperClassTest {
 
@@ -49,5 +52,4 @@ class PieceSuperClassTest {
         assertTrue(valid)
         assertFalse(unvalid)
     }
-
 }
