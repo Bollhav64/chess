@@ -8,15 +8,10 @@ import kotlin.test.assertTrue
 
 class PiecesTypesTest {
 
-    lateinit var board: Board
+    private val board = Board.newGameBoard()
 
     @Before
     fun setup() {
-        board = Board.newGameBoard()
-    }
-
-    @After
-    fun tearDown() {
         board.reload()
     }
 

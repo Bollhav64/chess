@@ -142,8 +142,7 @@ class BoardTest {
 
         board.move(piece!!, Pair('A', '4'))
         assertEquals(piece, board.matrix[Pair('A', '4')])
-        board.move(piece, Pair('A', '2'))
-
+        assertEquals(NullPiece, board.matrix[Pair('A', '2')])
     }
 }
 

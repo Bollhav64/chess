@@ -1,6 +1,7 @@
 import chess.*
 
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -8,8 +9,14 @@ import kotlin.test.assertTrue
 
 class PieceSuperClassTest {
 
-    private val matrix = Board.newGameBoard().matrix
+    private val board = Board.newGameBoard()
+    private val matrix = board.matrix
     private val piece = Piece("white")
+
+    @Before
+    fun setup() {
+        board.reload()
+    }
 
     @Test
     fun testGetType() {

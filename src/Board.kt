@@ -80,8 +80,12 @@ class Board {
 
         if (piece.validMove(target, matrix)) {
             matrix[target] = piece
-            matrix[originalPosition] = NullPiece
+            emptySquare(originalPosition)
         }
+    }
+
+    private fun emptySquare(square: Pair<Char, Char>) {
+        matrix[square] = NullPiece
     }
 
     fun reload() {
