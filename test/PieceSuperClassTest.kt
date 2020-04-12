@@ -4,9 +4,6 @@ import chess.Piece
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import java.lang.IllegalArgumentException
-import kotlin.test.assertFails
-import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
@@ -44,12 +41,16 @@ class PieceSuperClassTest {
 
     @Test
     fun testValidMove() {
-        val piece = Piece("white")
         val valid = piece.validMove(Pair('A', '4'), matrix)
         val unvalid = piece.validMove(Pair('B', '2'), matrix)
 
-
         assertTrue(valid)
         assertFalse(unvalid)
+    }
+
+    @Test
+    fun testStraightLine() {
+        assertTrue(piece.straightLine(Pair('A', '1'), Pair('A', '8')))
+        assertFalse(piece.straightLine(Pair('A', '1'), Pair('C', '8')))
     }
 }

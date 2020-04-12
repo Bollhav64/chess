@@ -3,12 +3,35 @@ package chess
 import java.lang.IllegalArgumentException
 
 class Board {
-    
+
     val matrix: MutableMap<Pair<Char, Char>, Piece> =
         emptyMap<Pair<Char, Char>, Piece>().toMutableMap()
 
+
     init {
         populateMatrix()
+    }
+
+    fun reload() {
+        matrix.clear()
+        populateMatrix()
+    }
+
+    fun move(piece: Piece, target: Pair<Char, Char>) {
+        val originalPosition: Pair<Char, Char> = matrix.filterValues {
+            it == piece
+        }.keys.first()
+
+        if (piece.validMove(target, matrix)) {
+            matrix[target] = piece
+            emptySquare(originalPosition)
+        } else {
+            throw IllegalArgumentException("Unvalid Move Target")
+        }
+    }
+
+    private fun emptySquare(square: Pair<Char, Char>) {
+        matrix[square] = NullPiece
     }
 
     private fun populateMatrix() {
@@ -21,7 +44,7 @@ class Board {
         placePiecesForStart()
     }
 
-    fun placePiecesForStart() {
+    private fun placePiecesForStart() {
         placePawns()
         placeRooks()
         placeKnights()
@@ -73,28 +96,6 @@ class Board {
         return matrix.filter { (key, _) ->
             key.second == row
         }.keys
-    }
-
-    fun move(piece: Piece, target: Pair<Char, Char>) {
-        val originalPosition: Pair<Char, Char> = matrix.filterValues {
-            it == piece
-        }.keys.first()
-
-        if (piece.validMove(target, matrix)) {
-            matrix[target] = piece
-            emptySquare(originalPosition)
-        } else {
-            throw IllegalArgumentException("Unvalid Move Target")
-        }
-    }
-
-    private fun emptySquare(square: Pair<Char, Char>) {
-        matrix[square] = NullPiece
-    }
-
-    fun reload() {
-        matrix.clear()
-        populateMatrix()
     }
 
     companion object {

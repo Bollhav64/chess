@@ -17,6 +17,10 @@ open class Piece(_team: String) {
         return otherPiece.team == team
     }
 
+    fun straightLine(original: Pair<Char, Char>, target: Pair<Char, Char>): Boolean {
+        return (original.first == target.first
+                || original.second == target.second)
+    }
 }
 
 object NullPiece : Piece("none")
