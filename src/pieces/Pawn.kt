@@ -2,9 +2,9 @@ package chess
 
 class Pawn(_team: String) : Piece(_team) {
 
-    override fun validMove(target: Pair<Char, Char>, board: MutableMap<Pair<Char, Char>, Piece>): Boolean {
+    override fun validMove(target: String, board: Board): Boolean {
         val occupantPiece = board[target]!!
-        val originalPosition: Pair<Char, Char> = board.filterValues {
+        val originalPosition: String = board.filterValues {
             it == this
         }.keys.first()
 
@@ -12,22 +12,22 @@ class Pawn(_team: String) : Piece(_team) {
 
                 || (rowMove(originalPosition, target, board)
 
-                && columnMove(originalPosition.second, target.second)
+                && columnMove(originalPosition[1], target[1])
                 ))
     }
 
     private fun attackMove(
-        original: Pair<Char, Char>,
-        target: Pair<Char, Char>,
+        original: String,
+        target: String,
         occupantPiece: Piece
     ): Boolean {
 
-        if (target.second == original.second) {
+        if (target[1] == original[1]) {
             return false
         }
 
-        return if (target.first == original.first+1 || target.first == original.first-1 &&
-            (target.second == original.second+1)
+        return if (target[0] == original[0]+1 || target[0] == original[0]-1 &&
+            (target[1] == original[1]+1)
         ) {
 
             (occupantPiece.type != "NullPiece" && !sameTeam(occupantPiece))
@@ -37,14 +37,14 @@ class Pawn(_team: String) : Piece(_team) {
     }
 
     private fun rowMove(
-        original: Pair<Char, Char>,
-        target: Pair<Char, Char>,
-        board: MutableMap<Pair<Char, Char>, Piece>
+        original: String,
+        target: String,
+        board: Board
     ): Boolean {
 
         val targetOccupant = board[target]
 
-        if (original.first == target.first) {
+        if (original[0] == target[0]) {
             if (super.validMove(target, board)) {
                 return super.validMove(target, board)
                         && (targetOccupant == NullPiece)

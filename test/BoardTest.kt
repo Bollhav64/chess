@@ -18,7 +18,7 @@ class BoardTest {
 
     @Test
     fun testGenerateMatrix() {
-        assertEquals(64, board.matrix.size)
+        assertEquals(64, board.size)
     }
 
     @Test
@@ -28,7 +28,7 @@ class BoardTest {
 
     @Test
     fun testNumberOfPlacedPieces() {
-        val placedPieces = board.matrix.filter {
+        val placedPieces = board.filter {
             it.value != NullPiece
         }
         assertEquals(32, placedPieces.size)
@@ -36,23 +36,23 @@ class BoardTest {
 
     @Test
     fun testPawnPlacement() {
-        val blackPawns = board.matrix.filterValues {
+        val blackPawns = board.filterValues {
             it.name == "black Pawn"
         }
 
-        val whitePawns = board.matrix.filter {
+        val whitePawns = board.filter {
             it.value.name == "white Pawn"
         }
 
         val expectedPositions = arrayOf(
-            Pair('A', '2'), Pair('A', '7'),
-            Pair('B', '2'), Pair('B', '7'),
-            Pair('C', '2'), Pair('C', '7'),
-            Pair('D', '2'), Pair('D', '7'),
-            Pair('E', '2'), Pair('E', '7'),
-            Pair('F', '2'), Pair('F', '7'),
-            Pair('G', '2'), Pair('G', '7'),
-            Pair('H', '2'), Pair('H', '7')
+            "A2", "A7",
+            "B2", "B7",
+            "C2", "C7",
+            "D2", "D7",
+            "E2", "E7",
+            "F2", "F7",
+            "G2", "G7",
+            "H2", "H7"
         )
 
         assertEquals(8, whitePawns.size)
@@ -65,20 +65,20 @@ class BoardTest {
 
     @Test
     fun testRoyaltyPlacement() {
-        val queens = board.matrix.filterValues { it.name.contains("Queen") }
-        val kings = board.matrix.filterValues { it.name.contains("King") }
+        val queens = board.filterValues { it.name.contains("Queen") }
+        val kings = board.filterValues { it.name.contains("King") }
 
-        assertTrue(kings[Pair('E', '8')]?.name == "black King")
-        assertTrue(kings[Pair('E', '1')]?.name == "white King")
+        assertTrue(kings["E8"]?.name == "black King")
+        assertTrue(kings["E1"]?.name == "white King")
 
-        assertTrue(queens[Pair('D', '8')]?.name == "black Queen")
-        assertTrue(queens[Pair('D', '1')]?.name == "white Queen")
+        assertTrue(queens["D8"]?.name == "black Queen")
+        assertTrue(queens["D1"]?.name == "white Queen")
     }
 
     @Test
     fun testNumberOfRoyalty() {
-        val queens = board.matrix.filterValues { it.name.contains("Queen") }
-        val kings = board.matrix.filterValues { it.name.contains("King") }
+        val queens = board.filterValues { it.name.contains("Queen") }
+        val kings = board.filterValues { it.name.contains("King") }
 
         assertEquals(2, kings.size)
         assertEquals(2, queens.size)
@@ -86,73 +86,73 @@ class BoardTest {
 
     @Test
     fun testNumberOfRooks() {
-        val rooks = board.matrix.filterValues { it.name.contains("Rook") }
+        val rooks = board.filterValues { it.name.contains("Rook") }
 
         assertEquals(4, rooks.size)
     }
 
     @Test
     fun testRookPlacement() {
-        val rooks = board.matrix.filterValues { it.name.contains("Rook") }
+        val rooks = board.filterValues { it.name.contains("Rook") }
 
-        assertTrue(rooks[Pair('A', '8')]?.name == "black Rook")
-        assertTrue(rooks[Pair('H', '8')]?.name == "black Rook")
+        assertTrue(rooks["A8"]?.name == "black Rook")
+        assertTrue(rooks["H8"]?.name == "black Rook")
 
-        assertTrue(rooks[Pair('A', '1')]?.name == "white Rook")
-        assertTrue(rooks[Pair('H', '1')]?.name == "white Rook")
+        assertTrue(rooks["A1"]?.name == "white Rook")
+        assertTrue(rooks["H1"]?.name == "white Rook")
     }
 
     @Test
     fun testNumberOfKnights() {
-        val knights = board.matrix.filterValues { it.name.contains("Knight") }
+        val knights = board.filterValues { it.name.contains("Knight") }
 
         assertEquals(4, knights.size)
     }
 
     @Test
     fun testKnightsPlacement() {
-        val knights = board.matrix.filterValues { it.name.contains("Knight") }
+        val knights = board.filterValues { it.name.contains("Knight") }
 
-        assertTrue(knights[Pair('B', '8')]?.name == "black Knight")
-        assertTrue(knights[Pair('G', '8')]?.name == "black Knight")
+        assertTrue(knights["B8"]?.name == "black Knight")
+        assertTrue(knights["G8"]?.name == "black Knight")
 
-        assertTrue(knights[Pair('B', '1')]?.name == "white Knight")
-        assertTrue(knights[Pair('G', '1')]?.name == "white Knight")
+        assertTrue(knights["B1"]?.name == "white Knight")
+        assertTrue(knights["G1"]?.name == "white Knight")
     }
 
     @Test
     fun testNumberOfBishops() {
-        val bishops = board.matrix.filterValues { it.name.contains("Bishop") }
+        val bishops = board.filterValues { it.name.contains("Bishop") }
 
         assertEquals(4, bishops.size)
     }
 
     @Test
     fun testBishopsPlacement() {
-        val knights = board.matrix.filterValues { it.name.contains("Bishop") }
+        val knights = board.filterValues { it.name.contains("Bishop") }
 
-        assertTrue(knights[Pair('C', '8')]?.name == "black Bishop")
-        assertTrue(knights[Pair('F', '8')]?.name == "black Bishop")
+        assertTrue(knights["C8"]?.name == "black Bishop")
+        assertTrue(knights["F8"]?.name == "black Bishop")
 
-        assertTrue(knights[Pair('C', '1')]?.name == "white Bishop")
-        assertTrue(knights[Pair('F', '1')]?.name == "white Bishop")
+        assertTrue(knights["C1"]?.name == "white Bishop")
+        assertTrue(knights["F1"]?.name == "white Bishop")
     }
 
     @Test
     fun testMove() {
-        val piece = board.matrix[Pair('A', '2')]
+        val piece = board["A2"]
 
-        board.move(piece!!, Pair('A', '4'))
-        assertEquals(piece, board.matrix[Pair('A', '4')])
-        assertEquals(NullPiece, board.matrix[Pair('A', '2')])
+        board.move(piece!!, "A4")
+        assertEquals(piece, board["A4"])
+        assertEquals(NullPiece, board["A2"])
     }
 
     @Test
     fun testUnvalidMoveException() {
-        val piece = board.matrix[Pair('A', '2')]!!
+        val piece = board["A2"]!!
         
         assertFailsWith<IllegalArgumentException> {
-            board.move(piece, Pair('A', '1'))
+            board.move(piece, "A1")
         }
     }
 }

@@ -10,7 +10,6 @@ import kotlin.test.assertTrue
 class PieceSuperClassTest {
 
     private val board = Board.newGameBoard()
-    private val matrix = board.matrix
     private val piece = Piece("white")
 
     @Before
@@ -41,8 +40,8 @@ class PieceSuperClassTest {
 
     @Test
     fun testValidMove() {
-        val valid = piece.validMove(Pair('A', '4'), matrix)
-        val unvalid = piece.validMove(Pair('B', '2'), matrix)
+        val valid = piece.validMove("A4", board)
+        val unvalid = piece.validMove("B2", board)
 
         assertTrue(valid)
         assertFalse(unvalid)
@@ -50,7 +49,7 @@ class PieceSuperClassTest {
 
     @Test
     fun testStraightLine() {
-        assertTrue(piece.straightLine(Pair('A', '1'), Pair('A', '8')))
-        assertFalse(piece.straightLine(Pair('A', '1'), Pair('C', '8')))
+        assertTrue(piece.straightLine("A1", "A8"))
+        assertFalse(piece.straightLine("A1", "C8"))
     }
 }

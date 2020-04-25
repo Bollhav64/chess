@@ -7,7 +7,7 @@ open class Piece(_team: String) {
 
     var moved = false
 
-    open fun validMove(target: Pair<Char, Char>, board: MutableMap<Pair<Char, Char>, Piece>): Boolean {
+    open fun validMove(target: String, board: Board): Boolean {
         val occupant = board[target]
 
         return (!sameTeam(occupant!!))
@@ -17,9 +17,9 @@ open class Piece(_team: String) {
         return otherPiece.team == team
     }
 
-    fun straightLine(original: Pair<Char, Char>, target: Pair<Char, Char>): Boolean {
-        return (original.first == target.first
-                || original.second == target.second)
+    fun straightLine(original: String, target: String): Boolean {
+        return (original[0] == target[0]
+                || original[1] == target[1])
     }
 }
 

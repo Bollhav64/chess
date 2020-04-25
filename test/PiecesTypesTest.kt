@@ -1,6 +1,5 @@
 import chess.*
 
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertFalse
@@ -17,13 +16,12 @@ class PiecesTypesTest {
 
     @Test
     fun testPawnValidMove() {
-        val matrix = board.matrix
-        val pawn = matrix[Pair('A', '2')]!!
+        val pawn = board["A2"]!!
 
-        val validFirst = pawn.validMove(Pair('A', '4'), matrix)
-        val unvalidFirst = pawn.validMove(Pair('A', '5'), matrix)
-        val validMove = pawn.validMove(Pair('A', '3'), matrix)
-        val teleportation = pawn.validMove(Pair('E', '5'), matrix)
+        val validFirst = pawn.validMove("A4", board)
+        val unvalidFirst = pawn.validMove("A5", board)
+        val validMove = pawn.validMove("A3", board)
+        val teleportation = pawn.validMove("E5", board)
 
         assertTrue(validMove)
         assertTrue(validFirst)
@@ -33,16 +31,15 @@ class PiecesTypesTest {
 
     @Test
     fun testPawnValidAttack() {
-        val matrix = board.matrix
 
-        val pawn = matrix[Pair('A', '2')]!!
+        val pawn = board["A2"]!!
 
-        matrix.replace(Pair('B', '3'), Pawn("black"))
-        matrix.replace(Pair('A', '3'), Pawn("black"))
+        board.replace("B3", Pawn("black"))
+        board.replace("A3", Pawn("black"))
 
-        val validAttackMove = pawn.validMove(Pair('B', '3'), matrix)
-        val unvalidAttackMove = pawn.validMove(Pair('A', '3'), matrix)
-        val straightAttack = pawn.validMove(Pair('A', '3'), matrix)
+        val validAttackMove = pawn.validMove("B3", board)
+        val unvalidAttackMove = pawn.validMove("A3", board)
+        val straightAttack = pawn.validMove("A3", board)
 
         assertTrue(validAttackMove)
         assertFalse(unvalidAttackMove)

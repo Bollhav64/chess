@@ -2,42 +2,38 @@ package chess
 
 import java.lang.IllegalArgumentException
 
-class Board {
-
-    val matrix: MutableMap<Pair<Char, Char>, Piece> =
-        emptyMap<Pair<Char, Char>, Piece>().toMutableMap()
-
+class Board: HashMap<String, Piece>() {
 
     init {
-        populateMatrix()
+        setupBoard()
     }
 
     fun reload() {
-        matrix.clear()
-        populateMatrix()
+        clear()
+        setupBoard()
     }
 
-    fun move(piece: Piece, target: Pair<Char, Char>) {
-        val originalPosition: Pair<Char, Char> = matrix.filterValues {
+    fun move(piece: Piece, target: String) {
+        val originalPosition: String = filterValues {
             it == piece
         }.keys.first()
 
-        if (piece.validMove(target, matrix)) {
-            matrix[target] = piece
+        if (piece.validMove(target, this)) {
+            this[target] = piece
             emptySquare(originalPosition)
         } else {
             throw IllegalArgumentException("Unvalid Move Target")
         }
     }
 
-    private fun emptySquare(square: Pair<Char, Char>) {
-        matrix[square] = NullPiece
+    private fun emptySquare(square: String) {
+        this[square] = NullPiece
     }
 
-    private fun populateMatrix() {
+    private fun setupBoard() {
         for (row in 'A'..'H') {
             for (column in '1'..'8') {
-                val coordinate = Pair(row, column)
+                val coordinate = "${row}${column}"
                 emptySquare(coordinate)
             }
         }
@@ -53,48 +49,48 @@ class Board {
     }
 
     private fun placeRooks() {
-        matrix[Pair('A', '1')] = Rook("white")
-        matrix[Pair('H', '1')] = Rook("white")
+        this["A1"] = Rook("white")
+        this["H1"] = Rook("white")
 
-        matrix[Pair('A', '8')] = Rook("black")
-        matrix[Pair('H', '8')] = Rook("black")
+        this["A8"] = Rook("black")
+        this["H8"] = Rook("black")
     }
 
     private fun placeKnights() {
-        matrix[Pair('B', '1')] = Knight("white")
-        matrix[Pair('G', '1')] = Knight("white")
+        this["B1"] = Knight("white")
+        this["G1"] = Knight("white")
 
-        matrix[Pair('B', '8')] = Knight("black")
-        matrix[Pair('G', '8')] = Knight("black")
+        this["B8"] = Knight("black")
+        this["G8"] = Knight("black")
     }
 
     private fun placeBishops() {
-        matrix[Pair('C', '1')] = Bishop("white")
-        matrix[Pair('F', '1')] = Bishop("white")
+        this["C1"] = Bishop("white")
+        this["F1"] = Bishop("white")
 
-        matrix[Pair('C', '8')] = Bishop("black")
-        matrix[Pair('F', '8')] = Bishop("black")
+        this["C8"] = Bishop("black")
+        this["F8"] = Bishop("black")
     }
 
     private fun placeRoyalty() {
-        matrix[Pair('E', '1')] = King("white")
-        matrix[Pair('E', '8')] = King("black")
+        this["E1"] = King("white")
+        this["E8"] = King("black")
 
-        matrix[Pair('D', '1')] = Queen("white")
-        matrix[Pair('D', '8')] = Queen("black")
+        this["D1"] = Queen("white")
+        this["D8"] = Queen("black")
     }
 
     private fun placePawns() {
         val blackPawnRow = getFullRow('7')
         val whitePawnRow = getFullRow('2')
 
-        whitePawnRow.forEach { key -> matrix[key] = Pawn("white") }
-        blackPawnRow.forEach { key -> matrix[key] = Pawn("black") }
+        whitePawnRow.forEach { key -> this[key] = Pawn("white") }
+        blackPawnRow.forEach { key -> this[key] = Pawn("black") }
     }
 
-    private fun getFullRow(row: Char): Set<Pair<Char, Char>> {
-        return matrix.filter { (key, _) ->
-            key.second == row
+    private fun getFullRow(row: Char): Set<String> {
+        return this.filter { (key, _) ->
+            key[1] == row
         }.keys
     }
 
