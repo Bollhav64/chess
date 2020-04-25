@@ -49,7 +49,19 @@ class PieceSuperClassTest {
 
     @Test
     fun testStraightLine() {
-        assertTrue(piece.straightLine("A1", "A8"))
-        assertFalse(piece.straightLine("A1", "C8"))
+        val valid = piece.straightLine("A1", "A8")
+        val unvalid = piece.straightLine("A1", "C8")
+
+        assertTrue(valid)
+        assertFalse(unvalid)
+    }
+
+    @Test
+    fun testDiagonalMove() {
+        val valid = piece.diagonalMove("A1", "E5")
+        val unvalid = piece.diagonalMove("A1", "B5")
+
+        assertTrue(valid)
+        assertFalse(unvalid)
     }
 }

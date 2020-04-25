@@ -21,6 +21,12 @@ open class Piece(_team: String) {
         return (original[0] == target[0]
                 || original[1] == target[1])
     }
+
+    fun diagonalMove(original: String, target: String): Boolean {
+        val letter = target[0] - original[0]
+        val number = target[1] - original[1]
+        return (letter == number)
+    }
 }
 
 object NullPiece : Piece("none")
