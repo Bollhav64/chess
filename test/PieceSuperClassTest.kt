@@ -49,11 +49,13 @@ class PieceSuperClassTest {
 
     @Test
     fun testStraightLine() {
-        val valid = piece.straightLine("A1", "A8")
-        val unvalid = piece.straightLine("A1", "C8")
+        val valid = piece.straightLine("A2", "A6", board)
+        val unvalid = piece.straightLine("A1", "C8", board)
+        val blocked = piece.straightLine("A1", "A4", board)
 
         assertTrue(valid)
         assertFalse(unvalid)
+        assertFalse(blocked)
     }
 
     @Test
