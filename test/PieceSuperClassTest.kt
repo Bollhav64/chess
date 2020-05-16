@@ -60,10 +60,12 @@ class PieceSuperClassTest {
 
     @Test
     fun testDiagonalMove() {
-        val valid = piece.diagonalMove("A1", "E5")
-        val unvalid = piece.diagonalMove("A1", "B5")
+        val valid = piece.diagonalMove("A2", "E6", board)
+        val unvalid = piece.diagonalMove("A1", "B5", board)
+        val blocked = piece.diagonalMove("C1", "E3", board)
 
         assertTrue(valid)
         assertFalse(unvalid)
+        assertFalse(blocked)
     }
 }

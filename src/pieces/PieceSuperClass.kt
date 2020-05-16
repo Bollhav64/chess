@@ -20,7 +20,7 @@ open class Piece(_team: String) {
     fun straightLine(original: String, target: String, board: Board): Boolean {
         val sameRow = original[0] == target[0]
         val sameColumn = original[1] == target[1]
-        val keys = getStraightInterval(sameRow, sameColumn, original, target)
+        val keys = getStraightInterval(sameRow, original, target)
 
         return ((sameRow || sameColumn)
                 and pathIsClear(keys,board))
@@ -36,7 +36,7 @@ open class Piece(_team: String) {
     }
 
     private fun getStraightInterval(
-        sameRow: Boolean, sameColumn: Boolean,
+        sameRow: Boolean,
         original: String, target: String
     ): List<String> {
         val keys = mutableListOf<String>()
@@ -61,12 +61,82 @@ open class Piece(_team: String) {
         return keys.toList()
     }
 
-    fun diagonalMove(original: String, target: String): Boolean {
-        val letter = target[0] - original[0]
-        val number = target[1] - original[1]
-        return (letter == number)
+    fun diagonalMove(original: String, target: String, board: Board): Boolean {
+        val letters = target[0] - original[0]
+        val numbers = target[1] - original[1]
+        val diagonal = letters == numbers
+
+        if (diagonal) {
+
+            val squares = when {
+                (original[0] < target[0]) && (original[1] < target[1]) -> upRight(original, target)
+
+                (original[0] > target[0]) && (original[1] < target[1]) -> upLeft(original, target)
+
+                (original[0] < target[0]) && (original[1] > target[1]) -> downRight(original, target)
+
+                (original[0] > target[0]) && (original[1] > target[1]) -> downLeft(original, target)
+
+                else -> listOf()
+            }
+            return pathIsClear(squares, board)
+        }
+
+        return false
     }
+
+    private fun upRight(original: String, target: String): List<String> {
+        val keys = mutableListOf<String>()
+        for ((index, _) in (original[0]..target[0]).withIndex()) {
+            val key = "${original[0]+index}${original[1]+index}"
+            keys.add(key)
+        }
+        with(keys) {
+            removeFirst()
+            removeLast()
+        }
+        return keys.toList()
+    }
+
+    private fun upLeft(original: String, target: String): List<String> {
+        val keys = mutableListOf<String>()
+        for ((index, _) in (original[0]..target[0]).withIndex()) {
+            val key = "${original[0]+index}${original[1]-index}"
+            keys.add(key)
+        }
+        with(keys) {
+            removeFirst()
+            removeLast()
+        }
+        return keys.toList()
+    }
+
+    private fun downRight(original: String, target: String): List<String> {
+        val keys = mutableListOf<String>()
+        for ((index, _) in (original[0]..target[0]).withIndex()) {
+            val key = "${original[0]-index}${original[1]+index}"
+            keys.add(key)
+        }
+        with(keys) {
+            removeFirst()
+            removeLast()
+        }
+        return keys.toList()
+    }
+
+    private fun downLeft(original: String, target: String): List<String> {
+        val keys = mutableListOf<String>()
+        for ((index, _) in (original[0]..target[0]).withIndex()) {
+            val key = "${original[0]-index}${original[1]-index}"
+            keys.add(key)
+        }
+        with(keys) {
+            removeFirst()
+            removeLast()
+        }
+        return keys.toList()
+    }
+
 }
 
 object NullPiece : Piece("none")
-
