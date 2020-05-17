@@ -46,26 +46,4 @@ class PieceSuperClassTest {
         assertTrue(valid)
         assertFalse(unvalid)
     }
-
-    @Test
-    fun testStraightLine() {
-        val valid = piece.straightLine("A2", "A6", board)
-        val unvalid = piece.straightLine("A1", "C8", board)
-        val blocked = piece.straightLine("A1", "A4", board)
-
-        assertTrue(valid)
-        assertFalse(unvalid)
-        assertFalse(blocked)
-    }
-
-    @Test
-    fun testDiagonalMove() {
-        val valid = piece.diagonalMove("A2", "E6", board)
-        val unvalid = piece.diagonalMove("A1", "B5", board)
-        val blocked = piece.diagonalMove("C1", "E3", board)
-
-        assertTrue(valid)
-        assertFalse(unvalid)
-        assertFalse(blocked)
-    }
 }

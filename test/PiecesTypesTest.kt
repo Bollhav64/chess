@@ -45,4 +45,24 @@ class PiecesTypesTest {
         assertFalse(unvalidAttackMove)
         assertFalse(straightAttack)
     }
+
+    @Test
+    fun testRookValidMove() {
+        var rook = board["A1"]!!
+
+        //val diagonal = rook.validMove("E5", board)
+        //val blocked = rook.validMove("A5", board)
+
+        board.replace("A3", Rook("white"))
+        rook = board["A3"]!!
+        //val vertical = rook.validMove("A6", board)
+        val horizontal = rook.validMove("H3", board)
+
+        /*
+        assertFalse(diagonal)
+        assertFalse(blocked)
+
+        assertTrue(vertical) */
+        assertTrue(horizontal)
+    }
 }

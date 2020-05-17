@@ -17,7 +17,7 @@ open class Piece(_team: String) {
         return otherPiece.team == team
     }
 
-    fun straightLine(original: String, target: String, board: Board): Boolean {
+    protected fun straightLine(original: String, target: String, board: Board): Boolean {
         val sameRow = original[0] == target[0]
         val sameColumn = original[1] == target[1]
         val keys = getStraightInterval(sameRow, original, target)
@@ -61,7 +61,7 @@ open class Piece(_team: String) {
         return keys.toList()
     }
 
-    fun diagonalMove(original: String, target: String, board: Board): Boolean {
+    protected fun diagonalMove(original: String, target: String, board: Board): Boolean {
         val letters = target[0] - original[0]
         val numbers = target[1] - original[1]
         val diagonal = letters == numbers
