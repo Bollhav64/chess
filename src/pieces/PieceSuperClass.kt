@@ -1,5 +1,7 @@
 package chess
 
+import kotlin.math.absoluteValue
+
 open class Piece(_team: String) {
     private val team = _team
     val type = javaClass.toString().split(".")[1]
@@ -64,7 +66,7 @@ open class Piece(_team: String) {
     protected fun diagonalMove(original: String, target: String, board: Board): Boolean {
         val letters = target[0] - original[0]
         val numbers = target[1] - original[1]
-        val diagonal = letters == numbers
+        val diagonal = letters.absoluteValue == numbers.absoluteValue
 
         if (diagonal) {
 
@@ -100,8 +102,10 @@ open class Piece(_team: String) {
 
     private fun upLeft(original: String, target: String): List<String> {
         val keys = mutableListOf<String>()
-        for ((index, _) in (original[0]..target[0]).withIndex()) {
-            val key = "${original[0]+index}${original[1]-index}"
+
+
+        for ((index, _) in original[0].downTo(target[0]).withIndex()) {
+            val key = "${original[0]-index}${original[1]+index}"
             keys.add(key)
         }
         with(keys) {
@@ -126,7 +130,7 @@ open class Piece(_team: String) {
 
     private fun downLeft(original: String, target: String): List<String> {
         val keys = mutableListOf<String>()
-        for ((index, _) in (original[0]..target[0]).withIndex()) {
+        for ((index, _) in (original[0].downTo(target[0])).withIndex()) {
             val key = "${original[0]-index}${original[1]-index}"
             keys.add(key)
         }

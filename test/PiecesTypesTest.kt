@@ -50,11 +50,12 @@ class PiecesTypesTest {
     fun testRookValidMove() {
         var rook = board["A1"]!!
 
-        val diagonal = rook.validMove("E5", board)
         val blocked = rook.validMove("A5", board)
 
-        board.replace("A3", Rook("white"))
+        board["A3"] = Rook("white")
         rook = board["A3"]!!
+
+        val diagonal = rook.validMove("E5", board)
         val vertical = rook.validMove("A6", board)
         val horizontal = rook.validMove("H3", board)
 
@@ -64,4 +65,28 @@ class PiecesTypesTest {
         assertTrue(vertical)
         assertTrue(horizontal)
     }
-}
+
+    @Test
+    fun testBishopValidMove() {
+        var bishop = board["C1"]!!
+
+        val blocked = bishop.validMove("E3", board)
+
+        board["C5"] = Bishop("white")
+        bishop = board["C5"]!!
+
+        val straight = bishop.validMove("C6", board)
+        val upRight = bishop.validMove("E7", board)
+        val downRight = bishop.validMove("E3", board)
+        val upLeft = bishop.validMove("A7", board)
+        val downLeft = bishop.validMove("A3", board)
+
+        assertFalse(straight)
+        assertFalse(blocked)
+
+        assertTrue(upRight)
+        assertTrue(upLeft)
+        assertTrue(downLeft)
+        assertTrue(downRight)
+    }
+ }
