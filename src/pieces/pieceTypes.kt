@@ -1,8 +1,21 @@
 package chess
 
+import kotlin.math.absoluteValue
+
 class King(_team: String) : Piece(_team)
 
-class Knight(_team: String) : Piece(_team)
+class Knight(_team: String) : Piece(_team) {
+    override fun validMove(target: String, board: Board): Boolean {
+        val original: String = board.filterValues {
+            it == this
+        }.keys.first()
+
+        val letter = (original[0] - target[0]).absoluteValue
+        val number = (original[1] - target[1]).absoluteValue
+        
+        return (letter == 1 && number == 2)
+    }
+}
 
 class Queen(_team: String) : Piece(_team) {
     override fun validMove(target: String, board: Board): Boolean {

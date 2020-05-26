@@ -115,4 +115,31 @@ class PiecesTypesTest {
         assertTrue(downLeft)
         assertTrue(downRight)
     }
+
+    @Test
+    fun testKnightValidMove() {
+        board["E2"] = NullPiece
+        board["C2"] = NullPiece
+        board["D4"] = Knight("white")
+
+        val knight = board["D4"] as Knight
+
+        val upright = knight.validMove("E6", board)
+        val upleft = knight.validMove("C6", board)
+        val downright = knight.validMove("E2", board)
+        val downleft = knight.validMove("C2", board)
+
+        val straight = knight.validMove("D6", board)
+        val diagonal = knight.validMove("F6", board)
+        val teleport = knight.validMove("H2", board)
+
+        assertTrue(upleft)
+        assertTrue(upright)
+        assertTrue(downleft)
+        assertTrue(downright)
+
+        assertFalse(straight)
+        assertFalse(diagonal)
+        assertFalse(teleport)
+    }
  }
