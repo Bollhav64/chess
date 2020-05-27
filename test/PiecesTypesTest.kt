@@ -142,4 +142,25 @@ class PiecesTypesTest {
         assertFalse(diagonal)
         assertFalse(teleport)
     }
+
+    @Test
+    fun testKingValidMove() {
+        var king = board["E1"] as King
+
+        val blocked = king.validMove("D1", board)
+
+        board["E4"] = King("white")
+        king = board["E4"] as King
+
+        val straight = king.validMove("E5", board)
+        val diagonal = king.validMove("D3", board)
+
+        val longStep = king.validMove("E6", board)
+
+        assertTrue(straight)
+        assertTrue(diagonal)
+
+        assertFalse(blocked)
+        assertFalse(longStep)
+    }
  }
