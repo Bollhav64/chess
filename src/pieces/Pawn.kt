@@ -4,9 +4,7 @@ class Pawn(_team: String) : Piece(_team) {
 
     override fun validMove(target: String, board: Board): Boolean {
         val occupantPiece = board[target]!!
-        val originalPosition: String = board.filterValues {
-            it == this
-        }.keys.first()
+        val originalPosition: String = position(board)
 
         return (attackMove(originalPosition, target, occupantPiece)
 

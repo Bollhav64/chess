@@ -4,9 +4,7 @@ import kotlin.math.absoluteValue
 
 class King(_team: String) : Piece(_team) {
     override fun validMove(target: String, board: Board): Boolean {
-        val original: String = board.filterValues {
-            it == this
-        }.keys.first()
+        val original: String = position(board)
 
         val letter = (original[0] - target[0]).absoluteValue
         val number = (original[1] - target[1]).absoluteValue
@@ -19,9 +17,7 @@ class King(_team: String) : Piece(_team) {
 
 class Knight(_team: String) : Piece(_team) {
     override fun validMove(target: String, board: Board): Boolean {
-        val original: String = board.filterValues {
-            it == this
-        }.keys.first()
+        val original: String = position(board)
 
         val letter = (original[0] - target[0]).absoluteValue
         val number = (original[1] - target[1]).absoluteValue
@@ -32,9 +28,8 @@ class Knight(_team: String) : Piece(_team) {
 
 class Queen(_team: String) : Piece(_team) {
     override fun validMove(target: String, board: Board): Boolean {
-        val original: String = board.filterValues {
-            it == this
-        }.keys.first()
+        val original: String = position(board)
+
         val straightLine = straightLine(original, target, board)
         val diagonal = diagonalMove(original, target, board)
         return (straightLine or diagonal)
@@ -43,9 +38,7 @@ class Queen(_team: String) : Piece(_team) {
 
 class Bishop(_team: String) : Piece(_team) {
     override fun validMove(target: String, board: Board): Boolean {
-        val original: String = board.filterValues {
-            it == this
-        }.keys.first()
+        val original: String = position(board)
 
         return diagonalMove(original, target, board)
     }
@@ -54,9 +47,7 @@ class Bishop(_team: String) : Piece(_team) {
 class Rook(_team: String) : Piece(_team) {
 
     override fun validMove(target: String, board: Board): Boolean {
-        val original: String = board.filterValues {
-            it == this
-        }.keys.first()
+        val original: String = position(board)
 
         return straightLine(original, target, board)
     }

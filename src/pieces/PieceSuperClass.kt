@@ -28,6 +28,12 @@ open class Piece(_team: String) {
                 and pathIsClear(keys,board))
     }
 
+    protected fun position(board: Board): String {
+        return board.filterValues {
+            it == this
+        }.keys.first()
+    }
+
     private fun pathIsClear(keys: List<String>, board: Board): Boolean {
         for (key in keys) {
             if (board[key] != NullPiece) {
