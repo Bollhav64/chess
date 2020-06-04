@@ -4,29 +4,12 @@ import java.lang.IllegalArgumentException
 
 class Board: HashMap<String, Piece>() {
 
-    init {
-        setupBoard()
-    }
-
     fun reload() {
         clear()
         setupBoard()
     }
 
-    fun move(piece: Piece, target: String) {
-        val originalPosition: String = filterValues {
-            it == piece
-        }.keys.first()
-
-        if (piece.validMove(target, this)) {
-            this[target] = piece
-            emptySquare(originalPosition)
-        } else {
-            throw IllegalArgumentException("Unvalid Move Target")
-        }
-    }
-
-    private fun emptySquare(square: String) {
+    fun emptySquare(square: String) {
         this[square] = NullPiece
     }
 

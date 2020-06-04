@@ -1,7 +1,4 @@
-import chess.Board
-import chess.Pawn
-import chess.Piece
-import chess.Team
+import chess.*
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -10,7 +7,8 @@ import kotlin.test.assertTrue
 
 class PieceSuperClassTest {
 
-    private val board = Board.newGameBoard()
+    private val session = Session()
+    private val board = session.board
     private val piece = Piece(Team.White)
 
     @Before

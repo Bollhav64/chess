@@ -7,7 +7,8 @@ import kotlin.test.assertTrue
 
 class PiecesTypesTest {
 
-    private val board = Board.newGameBoard()
+    private val session = Session()
+    private val board = session.board
 
     @Before
     fun setup() {

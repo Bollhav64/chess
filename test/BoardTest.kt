@@ -9,7 +9,8 @@ import kotlin.test.assertTrue
 
 class BoardTest {
 
-    private val board = Board.newGameBoard()
+    private val session = Session()
+    private val board = session.board
 
     @Before
     fun setup() {
@@ -142,7 +143,7 @@ class BoardTest {
     fun testMove() {
         val piece = board["A2"]
 
-        board.move(piece!!, "A4")
+        session.move(piece!!, "A4")
         assertEquals(piece, board["A4"])
         assertEquals(NullPiece, board["A2"])
     }
@@ -152,7 +153,7 @@ class BoardTest {
         val piece = board["A2"]!!
         
         assertFailsWith<IllegalArgumentException> {
-            board.move(piece, "A1")
+            session.move(piece, "A1")
         }
     }
 }
