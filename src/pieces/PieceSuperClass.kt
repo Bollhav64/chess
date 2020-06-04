@@ -2,7 +2,7 @@ package chess
 
 import kotlin.math.absoluteValue
 
-open class Piece(_team: String) {
+open class Piece(_team: Team) {
     private val team = _team
     val type = javaClass.toString().split(".")[1]
     val name = "$team $type"
@@ -75,21 +75,15 @@ open class Piece(_team: String) {
         val diagonal = letters.absoluteValue == numbers.absoluteValue
 
         if (diagonal) {
-
             val squares = when {
                 (original[0] < target[0]) && (original[1] < target[1]) -> upRight(original, target)
-
                 (original[0] > target[0]) && (original[1] < target[1]) -> upLeft(original, target)
-
                 (original[0] < target[0]) && (original[1] > target[1]) -> downRight(original, target)
-
                 (original[0] > target[0]) && (original[1] > target[1]) -> downLeft(original, target)
-
                 else -> listOf()
             }
             return pathIsClear(squares, board)
         }
-
         return false
     }
 
@@ -149,4 +143,6 @@ open class Piece(_team: String) {
 
 }
 
-object NullPiece : Piece("none")
+    object NullPiece : Piece(Team.None)
+
+    enum class Team {White, Black, None}

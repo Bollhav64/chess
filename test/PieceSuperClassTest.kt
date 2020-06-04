@@ -1,6 +1,7 @@
 import chess.Board
 import chess.Pawn
 import chess.Piece
+import chess.Team
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -10,7 +11,7 @@ import kotlin.test.assertTrue
 class PieceSuperClassTest {
 
     private val board = Board.newGameBoard()
-    private val piece = Piece("white")
+    private val piece = Piece(Team.White)
 
     @Before
     fun setup() {
@@ -24,19 +25,18 @@ class PieceSuperClassTest {
 
     @Test
     fun testGetName() {
-        val pawn = Pawn("white")
-        assertEquals("white Pawn", pawn.name)
+        val pawn = Pawn(Team.White)
+        assertEquals("White Pawn", pawn.name)
     }
 
     @Test
     fun testSameTeam() {
-        val friendPiece = Piece("white")
-        val enemyPiece = Piece("black")
+        val friendPiece = Piece(Team.White)
+        val enemyPiece = Piece(Team.Black)
 
         assertFalse(piece.sameTeam(enemyPiece))
         assertTrue(piece.sameTeam(friendPiece))
     }
-
 
     @Test
     fun testValidMove() {

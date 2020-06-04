@@ -1,6 +1,6 @@
 package chess
 
-class Pawn(_team: String) : Piece(_team) {
+class Pawn(_team: Team) : Piece(_team) {
 
     override fun validMove(target: String, board: Board): Boolean {
         val occupantPiece = board[target]!!

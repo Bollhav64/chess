@@ -37,11 +37,11 @@ class BoardTest {
     @Test
     fun testPawnPlacement() {
         val blackPawns = board.filterValues {
-            it.name == "black Pawn"
+            it.name == "Black Pawn"
         }
 
         val whitePawns = board.filter {
-            it.value.name == "white Pawn"
+            it.value.name == "White Pawn"
         }
 
         val expectedPositions = arrayOf(
@@ -68,11 +68,11 @@ class BoardTest {
         val queens = board.filterValues { it.name.contains("Queen") }
         val kings = board.filterValues { it.name.contains("King") }
 
-        assertTrue(kings["E8"]?.name == "black King")
-        assertTrue(kings["E1"]?.name == "white King")
+        assertTrue(kings["E8"]?.name == "Black King")
+        assertTrue(kings["E1"]?.name == "White King")
 
-        assertTrue(queens["D8"]?.name == "black Queen")
-        assertTrue(queens["D1"]?.name == "white Queen")
+        assertTrue(queens["D8"]?.name == "Black Queen")
+        assertTrue(queens["D1"]?.name == "White Queen")
     }
 
     @Test
@@ -95,11 +95,11 @@ class BoardTest {
     fun testRookPlacement() {
         val rooks = board.filterValues { it.name.contains("Rook") }
 
-        assertTrue(rooks["A8"]?.name == "black Rook")
-        assertTrue(rooks["H8"]?.name == "black Rook")
+        assertTrue(rooks["A8"]?.name == "Black Rook")
+        assertTrue(rooks["H8"]?.name == "Black Rook")
 
-        assertTrue(rooks["A1"]?.name == "white Rook")
-        assertTrue(rooks["H1"]?.name == "white Rook")
+        assertTrue(rooks["A1"]?.name == "White Rook")
+        assertTrue(rooks["H1"]?.name == "White Rook")
     }
 
     @Test
@@ -113,11 +113,11 @@ class BoardTest {
     fun testKnightsPlacement() {
         val knights = board.filterValues { it.name.contains("Knight") }
 
-        assertTrue(knights["B8"]?.name == "black Knight")
-        assertTrue(knights["G8"]?.name == "black Knight")
+        assertTrue(knights["B8"]?.name == "Black Knight")
+        assertTrue(knights["G8"]?.name == "Black Knight")
 
-        assertTrue(knights["B1"]?.name == "white Knight")
-        assertTrue(knights["G1"]?.name == "white Knight")
+        assertTrue(knights["B1"]?.name == "White Knight")
+        assertTrue(knights["G1"]?.name == "White Knight")
     }
 
     @Test
@@ -131,11 +131,11 @@ class BoardTest {
     fun testBishopsPlacement() {
         val knights = board.filterValues { it.name.contains("Bishop") }
 
-        assertTrue(knights["C8"]?.name == "black Bishop")
-        assertTrue(knights["F8"]?.name == "black Bishop")
+        assertTrue(knights["C8"]?.name == "Black Bishop")
+        assertTrue(knights["F8"]?.name == "Black Bishop")
 
-        assertTrue(knights["C1"]?.name == "white Bishop")
-        assertTrue(knights["F1"]?.name == "white Bishop")
+        assertTrue(knights["C1"]?.name == "White Bishop")
+        assertTrue(knights["F1"]?.name == "White Bishop")
     }
 
     @Test

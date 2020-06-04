@@ -2,7 +2,7 @@ package chess
 
 import kotlin.math.absoluteValue
 
-class King(_team: String) : Piece(_team) {
+class King(_team: Team) : Piece(_team) {
     override fun validMove(target: String, board: Board): Boolean {
         val original: String = position(board)
 

@@ -34,8 +34,8 @@ class PiecesTypesTest {
 
         val pawn = board["A2"] as Pawn
 
-        board.replace("B3", Pawn("black"))
-        board.replace("A3", Pawn("black"))
+        board.replace("B3", Pawn(Team.Black))
+        board.replace("A3", Pawn(Team.Black))
 
         val validAttackMove = pawn.validMove("B3", board)
         val unvalidAttackMove = pawn.validMove("A3", board)
@@ -52,7 +52,7 @@ class PiecesTypesTest {
 
         val blocked = rook.validMove("A5", board)
 
-        board["A3"] = Rook("white")
+        board["A3"] = Rook(Team.White)
         rook = board["A3"] as Rook
 
         val diagonal = rook.validMove("E5", board)
@@ -72,7 +72,7 @@ class PiecesTypesTest {
 
         val blocked = bishop.validMove("E3", board)
 
-        board["C5"] = Bishop("white")
+        board["C5"] = Bishop(Team.White)
         bishop = board["C5"] as Bishop
 
         val straight = bishop.validMove("C6", board)
@@ -97,7 +97,7 @@ class PiecesTypesTest {
         val blockedDiagonal = queen.validMove("F3", board)
         val blockedStraight = queen.validMove("D3", board)
 
-        board["C5"] = Queen("white")
+        board["C5"] = Queen(Team.White)
         queen = board["C5"] as Queen
 
         val straight = queen.validMove("C6", board)
@@ -120,7 +120,7 @@ class PiecesTypesTest {
     fun testKnightValidMove() {
         board["E2"] = NullPiece
         board["C2"] = NullPiece
-        board["D4"] = Knight("white")
+        board["D4"] = Knight(Team.White)
 
         val knight = board["D4"] as Knight
 
@@ -149,7 +149,7 @@ class PiecesTypesTest {
 
         val blocked = king.validMove("D1", board)
 
-        board["E4"] = King("white")
+        board["E4"] = King(Team.White)
         king = board["E4"] as King
 
         val straight = king.validMove("E5", board)
