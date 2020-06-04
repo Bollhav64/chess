@@ -3,7 +3,7 @@ package chess
 import kotlin.math.absoluteValue
 
 open class Piece(_team: Team) {
-    private val team = _team
+    val team = _team
     val type = javaClass.toString().split(".")[1]
     val name = "$team $type"
 

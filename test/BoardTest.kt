@@ -1,5 +1,5 @@
-import chess.NullPiece
-import chess.Session
+import chess.*
+
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -142,17 +142,30 @@ class BoardTest {
     fun testMove() {
         val piece = board["A2"]
 
-        session.move(piece!!, "A4")
+        session.move("A2", "A4")
         assertEquals(piece, board["A4"])
         assertEquals(NullPiece, board["A2"])
     }
 
     @Test
-    fun testUnvalidMoveException() {
-        val piece = board["A2"]!!
+    fun testTransformPawn() {
+        board["A7"] = Pawn(Team.White)
+        board["A2"] = Pawn(Team.Black)
 
-        assertFailsWith<IllegalArgumentException> {
-            session.move(piece, "A1")
+        session.move("A7", "B8")
+        session.move("A2", "B1")
+
+        assertEquals("Queen", board["B8"]?.type)
+        assertEquals("Queen", board["B1"]?.type)
+    }
+
+    @Test
+    fun testUnvalidMoveExceptions() {
+        assertFailsWith<Session.UnvalidMoveTargetException> {
+            session.move("A2", "A1")
+        }
+        assertFailsWith<Session.UnvalidMoveOriginException> {
+            session.move("A8", "A1")
         }
     }
 }
