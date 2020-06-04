@@ -25,7 +25,7 @@ open class Piece(_team: Team) {
         val keys = getStraightInterval(sameRow, original, target)
 
         return ((sameRow || sameColumn)
-                and pathIsClear(keys,board))
+                and pathIsClear(keys, board))
     }
 
     protected fun position(board: Board): String {
@@ -70,8 +70,8 @@ open class Piece(_team: Team) {
     }
 
     protected fun diagonalMove(original: String, target: String, board: Board): Boolean {
-        val letters = target[0] - original[0]
-        val numbers = target[1] - original[1]
+        val letters = target[0]-original[0]
+        val numbers = target[1]-original[1]
         val diagonal = letters.absoluteValue == numbers.absoluteValue
 
         if (diagonal) {
@@ -143,6 +143,6 @@ open class Piece(_team: Team) {
 
 }
 
-    object NullPiece : Piece(Team.None)
+object NullPiece : Piece(Team.None)
 
-    enum class Team {White, Black, None}
+enum class Team { White, Black, None }

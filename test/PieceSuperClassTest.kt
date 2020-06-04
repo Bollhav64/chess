@@ -1,4 +1,7 @@
-import chess.*
+import chess.Pawn
+import chess.Piece
+import chess.Session
+import chess.Team
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

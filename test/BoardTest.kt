@@ -1,9 +1,8 @@
-import chess.*
-
+import chess.NullPiece
+import chess.Session
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import java.lang.IllegalArgumentException
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
@@ -151,7 +150,7 @@ class BoardTest {
     @Test
     fun testUnvalidMoveException() {
         val piece = board["A2"]!!
-        
+
         assertFailsWith<IllegalArgumentException> {
             session.move(piece, "A1")
         }

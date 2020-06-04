@@ -164,4 +164,4 @@ class PiecesTypesTest {
         assertFalse(blocked)
         assertFalse(longStep)
     }
- }
+}

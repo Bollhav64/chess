@@ -1,7 +1,5 @@
 package chess
 
-import java.lang.IllegalArgumentException
-
 class Session {
 
     val board: Board = Board.newGameBoard()

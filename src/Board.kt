@@ -1,8 +1,6 @@
 package chess
 
-import java.lang.IllegalArgumentException
-
-class Board: HashMap<String, Piece>() {
+class Board : HashMap<String, Piece>() {
 
     fun reload() {
         clear()
